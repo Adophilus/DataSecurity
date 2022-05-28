@@ -22,12 +22,7 @@ class JsonAdapter(Adapter):
 
         def delete(self, **kwargs):
             def check(row):
-                return all(
-                    [
-                        (lambda k, v: True if row[k] == v else False)
-                        for k, v in kwargs.items()
-                    ]
-                )
+                return all(lambda k, v: row[k] == v for k, v in kwargs.items())
 
             removed = list()
 
@@ -40,12 +35,7 @@ class JsonAdapter(Adapter):
 
         def fetch(self, **kwargs):
             def check(row):
-                return all(
-                    [
-                        (lambda k, v: True if row[k] == v else False)
-                        for k, v in kwargs.items()
-                    ]
-                )
+                return all(lambda k, v: row[k] == v for k, v in kwargs.items())
 
             return filter(check, self.data)
 

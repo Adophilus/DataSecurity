@@ -20,8 +20,7 @@ def mainMenu():
 
     def loginUser():
         print()
-        login = hostelRecords.loginUser(*getUsernameAndPassword())
-        if (login):
+        if login := hostelRecords.loginUser(*getUsernameAndPassword()):
             IS_LOGGED_IN = True
             print("Login successful!")
             return True

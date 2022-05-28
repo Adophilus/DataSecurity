@@ -54,8 +54,7 @@ class RegistrationSystem(System):
         return user
 
     def getUser(self, username):
-        users = list(filter(lambda u: u["username"] == username, self.users))
-        if users:
+        if users := list(filter(lambda u: u["username"] == username, self.users)):
             return users[0]
 
     def loginUser(self, username, password):
